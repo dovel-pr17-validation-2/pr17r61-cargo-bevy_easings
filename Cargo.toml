@@ -1,0 +1,59 @@
+[package]
+name = "bevy_easings"
+version = "0.20.0"
+authors = ["François Mockers <francois.mockers@vleue.com>"]
+edition = "2024"
+description = "Easing plugin for Bevy"
+repository = "https://github.com/vleue/bevy_easings"
+homepage = "https://github.com/vleue/bevy_easings"
+documentation = "https://docs.rs/bevy_easings"
+keywords = ["bevy", "animation", "easing"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+exclude = ["examples/*.webp"]
+categories = ["game-development"]
+
+[dependencies]
+interpolation = "0.3"
+bevy_ecs = { version = "0.20.0", default-features = false }
+bevy_app = { version = "0.20.0", default-features = false }
+bevy_time = { version = "0.20.0", default-features = false }
+bevy_transform = { version = "0.20.0", default-features = false }
+bevy_math = { version = "0.20.0", default-features = false }
+bevy_render = { version = "0.20.0", default-features = false, optional = true }
+bevy_sprite = { version = "0.20.0", default-features = false, optional = true }
+bevy_ui = { version = "0.20.0", default-features = false, optional = true }
+bevy_text = { version = "0.20.0", default-features = false, optional = true }
+bevy_color = { version = "0.20.0", default-features = false, optional = true }
+
+[dev-dependencies.bevy]
+version = "0.20.0"
+default-features = false
+features = [
+    "bevy_window",
+    "bevy_render",
+    "bevy_sprite",
+    "bevy_sprite_render",
+    "bevy_ui",
+    "bevy_ui_render",
+    "bevy_ui_widgets",
+    "bevy_picking",
+    "ui_picking",
+    "bevy_text",
+    "bevy_winit",
+    "x11",
+    "bevy_asset",
+    "bevy_core_pipeline",
+    "default_font",
+    "png",
+]
+
+[dev-dependencies]
+rand = "0.10"
+
+[features]
+default = ["render", "sprite", "ui", "color"]
+"render" = ["bevy_render", "color"]
+"sprite" = ["bevy_sprite"]
+"ui" = ["bevy_ui", "bevy_text"]
+"color" = ["bevy_color"]
